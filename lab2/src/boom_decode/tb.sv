@@ -13,7 +13,7 @@ module tb;
 	DecodeUnit u0(
          // Input signals to DUT
   .io_enq_uop_inst              (vif.instr),
-  .io_enq_uop_is_sfb            (IS_SFB_ACTIVE),
+  .io_enq_uop_is_sfb            (0),
   .io_enq_uop_xcpt_pf_if        (vif.io_enq_uop_xcpt_pf_if),
   .io_enq_uop_xcpt_ae_if        (vif.io_enq_uop_xcpt_ae_if),
   .io_enq_uop_bp_debug_if       (vif.io_enq_uop_bp_debug_if),
@@ -70,7 +70,7 @@ module tb;
     clk <= 0;
     uvm_config_db#(virtual decode_if.MON)::set(uvm_root::get(), "*", "decode_if_MON", vif);
     uvm_config_db#(virtual decode_if.DRV)::set(uvm_root::get(), "*", "decode_if_DRV", vif);
-    run_test("test_RV32A");
+    run_test("test_RV64A");
   end
 
   // initial begin

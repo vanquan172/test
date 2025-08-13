@@ -108,7 +108,7 @@ class driver extends uvm_driver#(item);
         vif.cb.io_enq_uop_bp_xcpt_if       <= seq.io_enq_uop_bp_xcpt_if;
         vif.cb.true_random_instr           <= seq.true_random_instr;
 
-        `uvm_info(get_type_name(), $sformatf("res1 = %b, rv_type = %b, instr = %b", seq.rs1,seq.RV32I_type,instr_tmp), UVM_HIGH);
+        `uvm_info(get_type_name(), $sformatf("INSTRC = %b, OPCODE = %h", instr_tmp, instr_tmp[6:0]), UVM_HIGH);
     endtask
 endclass
 

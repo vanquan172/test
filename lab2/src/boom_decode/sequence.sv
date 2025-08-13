@@ -25,15 +25,9 @@ class bas_seq extends uvm_sequence#(item);
             seq_item = item::type_id::create("seq_item");
             start_item(seq_item); 
             seq_item.randomize() with { extension == select_extension; }; 
-            `uvm_info(get_type_name(), $sformatf("inside bas_seq %b, rv32type = %b", seq_item.rs1,seq_item.RV32I_type ), UVM_HIGH);
+            `uvm_info(get_type_name(),$sformatf("[BSEQ] RV_Type = %b",seq_item.extension), UVM_HIGH);
             finish_item(seq_item); 
         end 
-            // seq_item = item::type_id::create("seq_item");
-            // start_item(seq_item); 
-            // seq_item.randomize() ; // with { extension == select_extension; }; 
-            // `uvm_info(get_type_name(), $sformatf("inside bas_seq %b, rv32type = %b", seq_item.rs1,seq_item.RV32I_type ), UVM_HIGH);
-            // finish_item(seq_item); 
-            // `uvm_info(get_type_name(), "Base seq: Inside Body", UVM_LOW);
-            // `uvm_do(seq_item);
+     
     endtask 
 endclass
