@@ -93,20 +93,20 @@ class driver extends uvm_driver#(item);
         endcase
 
         @(vif.cb); 
-        vif.cb.instr                       <= instr_tmp;
-        vif.cb.io_enq_uop_is_sfb           <= seq.io_enq_uop_is_sfb;
-        vif.cb.io_interrupt_cause          <= seq.io_interrupt_cause;
-        vif.cb.io_interrupt                <= seq.io_interrupt;
-        vif.cb.io_csr_decode_fp_illegal    <= seq.io_csr_decode_fp_illegal;
-        vif.cb.io_csr_decode_read_illegal  <= seq.io_csr_decode_read_illegal;
-        vif.cb.io_csr_decode_write_illegal <= seq.io_csr_decode_write_illegal;
-        vif.cb.io_csr_decode_write_flush   <= seq.io_csr_decode_write_flush;
+        vif.cb.instr                        <= instr_tmp;
+        vif.cb.io_enq_uop_is_sfb            <= seq.io_enq_uop_is_sfb;
+        vif.cb.io_interrupt_cause           <= seq.io_interrupt_cause;
+        vif.cb.io_interrupt                 <= seq.io_interrupt;
+        vif.cb.io_csr_decode_fp_illegal     <= seq.io_csr_decode_fp_illegal;
+        vif.cb.io_csr_decode_read_illegal   <= seq.io_csr_decode_read_illegal;
+        vif.cb.io_csr_decode_write_illegal  <= seq.io_csr_decode_write_illegal;
+        vif.cb.io_csr_decode_write_flush    <= seq.io_csr_decode_write_flush;
         vif.cb.io_csr_decode_system_illegal <= seq.io_csr_decode_system_illegal;
-        vif.cb.io_enq_uop_xcpt_pf_if       <= seq.io_enq_uop_xcpt_pf_if;
-        vif.cb.io_enq_uop_xcpt_ae_if       <= seq.io_enq_uop_xcpt_ae_if;
-        vif.cb.io_enq_uop_bp_debug_if      <= seq.io_enq_uop_bp_debug_if;
-        vif.cb.io_enq_uop_bp_xcpt_if       <= seq.io_enq_uop_bp_xcpt_if;
-        vif.cb.true_random_instr           <= seq.true_random_instr;
+        vif.cb.io_enq_uop_xcpt_pf_if        <= seq.io_enq_uop_xcpt_pf_if;
+        vif.cb.io_enq_uop_xcpt_ae_if        <= seq.io_enq_uop_xcpt_ae_if;
+        vif.cb.io_enq_uop_bp_debug_if       <= seq.io_enq_uop_bp_debug_if;
+        vif.cb.io_enq_uop_bp_xcpt_if        <= seq.io_enq_uop_bp_xcpt_if;
+        vif.cb.true_random_instr            <= seq.true_random_instr;
 
         `uvm_info(get_type_name(), $sformatf("INSTRC = %b, OPCODE = %h", instr_tmp, instr_tmp[6:0]), UVM_HIGH);
     endtask

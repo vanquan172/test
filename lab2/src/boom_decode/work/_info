@@ -27,181 +27,202 @@ R2
 R3
 n@_opt1
 R4
+R0
+T_opt2
+!s110 1755186641
+VLX6G7ooMAM>jGbDzTI^^;2
+R1
+=1-90e868265fa7-689e05d0-3cb-215c
+R2
+R3
+n@_opt2
+R4
+R0
+T_opt3
+!s110 1755275978
+V5UeZ_N;3_GnP[lml64[z22
+R1
+=1-90e868265fa7-689f62ca-128-a80
+R2
+R3
+n@_opt3
+R4
 Ydecode_if
 Z5 DXx6 sv_std 3 std 0 22 d=_JfHTnXCN[H5FjiaJJc0
-!s110 1755060432
+Z6 !s110 1755275975
 !i10b 1
 !s100 f6`n7COkJiXC9U4n9Kckk2
 I1S@Z2[KS67i8hU;gOeEPo0
-Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 VDg1SIo80bB@j0V0VzS_@n1
 !s105 decode_if_sv_unit
 S1
 R0
-Z7 w1755049633
+Z8 w1755049633
 8decode_if.sv
 Fdecode_if.sv
 L0 2
-Z8 OL;L;10.7c;67
+Z9 OL;L;10.7c;67
 r1
 !s85 0
 31
-Z9 !s108 1755060431.000000
+Z10 !s108 1755275975.000000
 !s107 decode_if.sv|
 !s90 -reportprogress|300|decode_if.sv|
 !i113 0
-Z10 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R3
 Xdecode_table_package
 R5
-Z11 !s110 1755060431
+R6
 !i10b 1
 !s100 2h<iG24NfJlI3UQ7:f<kS2
 I7bPT31ZSQ_=QXzJ5Z0PFR3
 V7bPT31ZSQ_=QXzJ5Z0PFR3
 S1
 R0
-R7
+R8
 8decode_table_package.sv
 Fdecode_table_package.sv
 L0 2
-R8
+R9
 r1
 !s85 0
 31
-Z12 !s108 1755060430.000000
+R10
 !s107 decode_table_package.sv|
 !s90 -reportprogress|300|decode_table_package.sv|
 !i113 0
-R10
+R11
 R3
 vDecodeUnit
-!s110 1755060433
+!s110 1755275976
 !i10b 1
 !s100 9^a`D`0o:`Bd@OjDk17L=2
 IzZCZDW@]UN[YE6lk;?Geo1
-R6
-R0
 R7
+R0
+R8
 8DecodeUnit.v
 FDecodeUnit.v
 L0 1
-R8
+R9
 r1
 !s85 0
 31
-!s108 1755060432.000000
+R10
 !s107 DecodeUnit.v|
 !s90 -reportprogress|300|DecodeUnit.v|
 !i113 0
-R10
+R11
 R3
 n@decode@unit
 Xpackage_decode
 R5
-!s110 1755060430
+R6
 !i10b 1
-!s100 TmAjLXMl@zQdL^US<b<Hg1
-IC9EbFoQl8J:MPemCJe=Pf0
-VC9EbFoQl8J:MPemCJe=Pf0
+!s100 ]Y[BAC?PY2Rdc>o5DFlDQ0
+IP>E^kP:^N[1GIjKo?QnEY2
+VP>E^kP:^N[1GIjKo?QnEY2
 S1
 R0
-R7
+w1755248734
 8package_decode.sv
 Fpackage_decode.sv
 L0 1
-R8
+R9
 r1
 !s85 0
 31
-R12
+R10
 !s107 package_decode.sv|
 !s90 -reportprogress|300|package_decode.sv|
 !i113 0
-R10
+R11
 R3
 vtb
 R5
-Z13 DXx6 mtiUvm 7 uvm_pkg 0 22 3zPkj@YUcM=M^m3zCLh<H1
-Z14 DXx4 work 14 package_decode 0 22 C9EbFoQl8J:MPemCJe=Pf0
-Z15 DXx4 work 20 decode_table_package 0 22 7bPT31ZSQ_=QXzJ5Z0PFR3
-Z16 DXx4 work 10 uvm_tb_pkg 0 22 ZPcSTeT3eXJ:@:;MJd`>G0
-DXx4 work 10 tb_sv_unit 0 22 F<`i5C[zZz]QCCLSAUO4B1
-R6
+Z12 DXx6 mtiUvm 7 uvm_pkg 0 22 3zPkj@YUcM=M^m3zCLh<H1
+Z13 DXx4 work 14 package_decode 0 22 P>E^kP:^N[1GIjKo?QnEY2
+Z14 DXx4 work 20 decode_table_package 0 22 7bPT31ZSQ_=QXzJ5Z0PFR3
+Z15 DXx4 work 10 uvm_tb_pkg 0 22 ]]]KiMQlFPNzh0J>00g2J2
+DXx4 work 10 tb_sv_unit 0 22 ^ind<7A<GBTYYfadK;VNL0
+R7
 r1
 !s85 0
 !i10b 1
-!s100 0I?czhUm:EZTE`;8oKid]1
-IeBj?j_RGh2k^V]Ee3[T>b0
+!s100 zokb8`6VO@GX[l4fU4ePc3
+I@<cZaWZTUgBXE0ZHeC6T33
 !s105 tb_sv_unit
 S1
 R0
-Z17 w1755060428
-Z18 8tb.sv
-Z19 Ftb.sv
+Z16 w1755275972
+Z17 8tb.sv
+Z18 Ftb.sv
 L0 7
-R8
+R9
 31
-Z20 !s108 1755060433.000000
-Z21 !s107 D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb.sv|
-Z22 !s90 -reportprogress|300|tb.sv|
+Z19 !s108 1755275976.000000
+Z20 !s107 D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|tb.sv|
+Z21 !s90 -reportprogress|300|tb.sv|
 !i113 0
-R10
+R11
 R3
 Xtb_sv_unit
 R5
+R12
 R13
 R14
 R15
-R16
-VF<`i5C[zZz]QCCLSAUO4B1
+V^ind<7A<GBTYYfadK;VNL0
 r1
 !s85 0
 !i10b 1
 !s100 DZzVeH>d_LK7V_Tc6M4R20
-IF<`i5C[zZz]QCCLSAUO4B1
+I^ind<7A<GBTYYfadK;VNL0
 !i103 1
 S1
 R0
+R16
 R17
 R18
-R19
-Z23 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
-Z24 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
-Z25 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
-Z26 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
-Z27 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
-Z28 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
-Z29 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
-Z30 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
-Z31 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
-Z32 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
-Z33 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
-Z34 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+Z22 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z23 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z24 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z25 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z26 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z27 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z28 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z29 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z30 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z31 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z32 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z33 FD:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
 L0 3
-R8
+R9
 31
+R19
 R20
 R21
-R22
 !i113 0
-R10
+R11
 R3
 Xuvm_tb_pkg
 !s115 decode_if
 R5
+R12
 R13
 R14
-R15
-R11
+R6
 !i10b 1
-!s100 8W8bcY1Q1MlODhkk=:Q9;2
-IZPcSTeT3eXJ:@:;MJd`>G0
-VZPcSTeT3eXJ:@:;MJd`>G0
+!s100 oQ`Y7>OAEefE=HJki447[2
+I]]]KiMQlFPNzh0J>00g2J2
+V]]]KiMQlFPNzh0J>00g2J2
 S1
 R0
-w1755055731
+w1755275940
 8uvm_tb_pkg.sv
 Fuvm_tb_pkg.sv
+R22
 R23
 R24
 R25
@@ -213,11 +234,11 @@ R30
 R31
 R32
 R33
-R34
 Fitem.sv
 Fsequence.sv
 Fdriver.sv
 Fmonitor.sv
+Fcoverage.sv
 Fscoreboard.sv
 Fagent.sv
 Fenv.sv
@@ -229,13 +250,13 @@ Ftest_RV64M.sv
 Ftest_RV32A.sv
 Ftest_RV64A.sv
 L0 1
-R8
+R9
 r1
 !s85 0
 31
-R9
-!s107 test_RV64A.sv|test_RV32A.sv|test_RV64M.sv|test_RV32M.sv|test_RV64I.sv|test_RV32I.sv|base_test.sv|env.sv|agent.sv|scoreboard.sv|monitor.sv|driver.sv|sequence.sv|item.sv|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|uvm_tb_pkg.sv|
+R10
+!s107 test_RV64A.sv|test_RV32A.sv|test_RV64M.sv|test_RV32M.sv|test_RV64I.sv|test_RV32I.sv|base_test.sv|env.sv|agent.sv|scoreboard.sv|coverage.sv|monitor.sv|driver.sv|sequence.sv|item.sv|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|D:/App/Questa_Sim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|uvm_tb_pkg.sv|
 !s90 -reportprogress|300|uvm_tb_pkg.sv|
 !i113 0
-R10
+R11
 R3

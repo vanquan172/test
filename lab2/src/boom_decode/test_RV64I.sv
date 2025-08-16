@@ -7,7 +7,8 @@ class test_RV64I extends base_test;
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     bseq.randomize() with { 
-        num inside {[MIN_NUM:MAX_NUM]}; 
+        //num inside {[MIN_NUM:MAX_NUM]}; 
+        num == 100; 
         select_extension == RV64I;
     };
     

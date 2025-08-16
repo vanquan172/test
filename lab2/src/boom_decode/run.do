@@ -4,5 +4,12 @@ vlog uvm_tb_pkg.sv
 vlog decode_if.sv
 vlog DecodeUnit.v
 vlog tb.sv
-vsim work.tb +UVM_VERBOSITY=UVM_HIGH
+
+vsim -coverage work.tb +UVM_VERBOSITY=UVM_HIGH
 run -all
+
+coverage save mycov.ucdb
+coverage report -detail -cvg
+
+vcover report -html -htmldir cov_report mycov.ucdb
+

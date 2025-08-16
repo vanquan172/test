@@ -9,8 +9,8 @@ package package_decode;
         // Short forward branch active?
             localparam IS_SFB_ACTIVE = 0; // choose between 0 and 1
         // number of generated instruction
-            localparam MIN_NUM = 50;
-            localparam MAX_NUM = 200;
+            localparam MIN_NUM = 100;
+            localparam MAX_NUM = 250;
         // extension
             localparam RV32I       = 0;
             localparam RV64I       = 1;

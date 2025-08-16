@@ -22,13 +22,7 @@ class base_test extends uvm_test;
         phase.raise_objection(this); 
  //       apply_reset(); 
         bseq.start(en.agt.sqcr); 
-        #200;      
-       
-        // repeat(30) begin 
-        //     #10; 
-        //     bseq.start(en.agt.sqcr); 
-        // end 
-
+        #10;      
         phase.drop_objection(this);
 
     endtask 

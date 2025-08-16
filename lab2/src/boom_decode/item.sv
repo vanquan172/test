@@ -289,12 +289,6 @@ class item extends uvm_sequence_item;
                 (RV32I_type == RV32I_ENVIR_Type) -> RV32I_ENVIR_opcode inside {7'b1110011};
                 
             }
-
-            // opcode 
-            // constraint c_RV32I_RType_opcode { RV32I_RType_opcode inside {7'b0010011, 7'b0110011};}
-            // //..//
-
-            // constraint c_RV32I_RType_funct7 { RV32I_RType_funct7 inside {7'b0000000, 7'b0100000};}
             // R-Type
             constraint c_RV32I_RType_funct {
                 if(RV32I_RType_opcode == 7'b0010011){
@@ -420,13 +414,13 @@ class item extends uvm_sequence_item;
             }
         // RV32M
             constraint c_RV32M {
-                RV32M_opcode == 7'b0110011; 
+            //    RV32M_opcode == 7'b0110011; 
                 RV32M_funct3 inside {3'b000, 3'b001, 3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111};
                 RV32M_funct7 == 7'b0000001;
             }
         // RV64M
             constraint c_RV64M {
-                RV64M_opcode == 7'b0111011; 
+            //    RV64M_opcode == 7'b0111011; 
                 RV64M_funct3 inside {3'b000, 3'b100, 3'b101, 3'b110, 3'b111};
                 RV64M_funct7 == 7'b0000001;
             }
