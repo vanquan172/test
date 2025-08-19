@@ -1,5 +1,5 @@
-`define str_indx 0  // RV32I
-`define ed_indx  39 
+// `define str_indx 0  // RV32I
+// `define ed_indx  39 
 // `define str_indx 40 // RV64I
 // `define ed_indx  54 
 // `define str_indx 55 // RV32M
@@ -10,6 +10,20 @@
 // `define ed_indx  78 
 // `define str_indx 79 // RV64A
 // `define ed_indx  89 
+
+// `define str_indx 90 // RVCSR
+// `define ed_indx  95 
+
+// `define str_indx 96  // RV32F
+// `define ed_indx  121  
+// `define str_indx 122 // RV64F
+// `define ed_indx  125 
+// `define str_indx 126 // RV32D
+// `define ed_indx  151 
+`define str_indx 152 // RV64D
+`define ed_indx  157 
+
+
 
 
 import package_decode::*;
@@ -28,7 +42,7 @@ bit [31:0] instr_op;
 class coverage extends uvm_subscriber #(item);
   `uvm_component_utils(coverage)
 
-  cv_gr_RV arr_cv_gr_RV [90];
+  cv_gr_RV arr_cv_gr_RV [158];
     
   function new(string name="coverage", uvm_component parent=null);
     int i; 

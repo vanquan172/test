@@ -21,4 +21,10 @@ package uvm_tb_pkg;
   `include "test_RV32A.sv"
   `include "test_RV64A.sv"
 
+  `include "test_RVCSR.sv"
+  `include "test_RV32F.sv"
+  `include "test_RV64F.sv"
+  `include "test_RV32D.sv"
+  `include "test_RV64D.sv"
+
 endpackage

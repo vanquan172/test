@@ -90,6 +90,47 @@ class driver extends uvm_driver#(item);
             RV64A: begin 
                 instr_tmp = {seq.RV64A_funct7,seq.RV64A_aq, seq.RV64A_rl,seq.RV64A_rs2, seq.RV64A_rs1, seq.RV64A_funct3, seq.RV64A_rd, seq.RV64A_opcode}; 
             end 
+            RVCSR: begin 
+                instr_tmp = {seq.RVCSR_csr,seq.RVCSR_rs1, seq.RVCSR_funct3,seq.RVCSR_rd, seq.RVCSR_opcode}; 
+            end 
+            RV32F: begin 
+                case(seq.RV32F_type) 
+                    RV32F_LSType: begin 
+                        if(seq.RV32F_LSType_opcode == 7'b0000111)
+                            instr_tmp = {seq.RV32F_LSType_imm,seq.RV32F_LSType_rs1, seq.RV32F_LSType_wid,seq.RV32F_LSType_rd, seq.RV32F_LSType_opcode}; 
+                        else 
+                            instr_tmp = {seq.RV32F_LSType_imm[11:5],seq.RV32F_LSType_rs2, seq.RV32F_LSType_rs1,seq.RV32F_LSType_wid,seq.RV32F_LSType_imm[4:0], seq.RV32F_LSType_opcode}; 
+                    end  
+                    RV32F_R4Type: begin 
+                        instr_tmp = {seq.RV32F_R4Type_rs3,seq.RV32F_R4Type_fmt, seq.RV32F_R4Type_rs2,seq.RV32F_R4Type_rs1, seq.RV32F_R4Type_rm,seq.RV32F_R4Type_rd,seq.RV32F_R4Type_opcode}; 
+                    end 
+                    RV32F_RType: begin 
+                        instr_tmp = {seq.RV32F_RType_funct5,seq.RV32F_RType_fmt, seq.RV32F_RType_rs2,seq.RV32F_RType_rs1, seq.RV32F_RType_rm,seq.RV32F_RType_rd,seq.RV32F_RType_opcode}; 
+                    end 
+                endcase 
+            end 
+            RV64F: begin 
+                instr_tmp = {seq.RV64F_RType_funct5,seq.RV64F_RType_fmt, seq.RV64F_RType_rs2,seq.RV64F_RType_rs1, seq.RV64F_RType_rm,seq.RV64F_RType_rd,seq.RV64F_RType_opcode}; 
+            end 
+            RV32D: begin 
+                case(seq.RV32D_type) 
+                    RV32D_LSType: begin 
+                        if(seq.RV32D_LSType_opcode == 7'b0000111)
+                            instr_tmp = {seq.RV32D_LSType_imm,seq.RV32D_LSType_rs1, seq.RV32D_LSType_wid,seq.RV32D_LSType_rd, seq.RV32D_LSType_opcode}; 
+                        else 
+                            instr_tmp = {seq.RV32D_LSType_imm[11:5],seq.RV32D_LSType_rs2, seq.RV32D_LSType_rs1,seq.RV32D_LSType_wid,seq.RV32D_LSType_imm[4:0], seq.RV32D_LSType_opcode}; 
+                    end  
+                    RV32D_R4Type: begin 
+                        instr_tmp = {seq.RV32D_R4Type_rs3,seq.RV32D_R4Type_fmt, seq.RV32D_R4Type_rs2,seq.RV32D_R4Type_rs1, seq.RV32D_R4Type_rm,seq.RV32D_R4Type_rd,seq.RV32D_R4Type_opcode}; 
+                    end 
+                    RV32D_RType: begin 
+                        instr_tmp = {seq.RV32D_RType_funct5,seq.RV32D_RType_fmt, seq.RV32D_RType_rs2,seq.RV32D_RType_rs1, seq.RV32D_RType_rm,seq.RV32D_RType_rd,seq.RV32D_RType_opcode}; 
+                    end 
+                endcase 
+            end 
+            RV64D: begin 
+                instr_tmp = {seq.RV64D_RType_funct5,seq.RV64D_RType_fmt, seq.RV64D_RType_rs2,seq.RV64D_RType_rs1, seq.RV64D_RType_rm,seq.RV64D_RType_rd,seq.RV64D_RType_opcode}; 
+            end 
         endcase
 
         @(vif.cb); 

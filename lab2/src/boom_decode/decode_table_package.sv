@@ -330,8 +330,86 @@ localparam decode_ctrl_sig_s DECODE_STRUCT [] = '{
     '{Y, N, X, uopAMO_AG , IQT_MEM, FU_MEM, RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, Y, Y, N, N, M_XA_MIN , 0, N, N, N, Y, Y, CSR_N, uopAMO_AG},      // AMOMIN.D
     '{Y, N, X, uopAMO_AG , IQT_MEM, FU_MEM, RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, Y, Y, N, N, M_XA_MAX , 0, N, N, N, Y, Y, CSR_N, uopAMO_AG},      // AMOMAX.D
     '{Y, N, X, uopAMO_AG , IQT_MEM, FU_MEM, RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, Y, Y, N, N, M_XA_MINU, 0, N, N, N, Y, Y, CSR_N, uopAMO_AG},      // AMOMINU.D
-    '{Y, N, X, uopAMO_AG , IQT_MEM, FU_MEM, RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, Y, Y, N, N, M_XA_MAXU, 0, N, N, N, Y, Y, CSR_N, uopAMO_AG}       // AMOMAXU.D
+    '{Y, N, X, uopAMO_AG , IQT_MEM, FU_MEM, RT_FIX, RT_FIX, RT_FIX, N, IS_X, N, Y, Y, N, N, M_XA_MAXU, 0, N, N, N, Y, Y, CSR_N, uopAMO_AG},       // AMOMAXU.D
 
-};
+    // RVCSR
+    '{Y, N, X, uopCSRRW,  IQT_INT, FU_CSR, RT_FIX, RT_FIX, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_W,  uopCSRRW},
+    '{Y, N, X, uopCSRRS,  IQT_INT, FU_CSR, RT_FIX, RT_FIX, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_S,  uopCSRRS},
+    '{Y, N, X, uopCSRRC,  IQT_INT, FU_CSR, RT_FIX, RT_FIX, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_C,  uopCSRRC},
+
+    '{Y, N, X, uopCSRRWI, IQT_INT, FU_CSR, RT_FIX, RT_PAS, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_W,  uopCSRRWI},
+    '{Y, N, X, uopCSRRSI, IQT_INT, FU_CSR, RT_FIX, RT_PAS, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_S,  uopCSRRSI},
+    '{Y, N, X, uopCSRRCI, IQT_INT, FU_CSR, RT_FIX, RT_PAS, RT_X , N, IS_I, N, N, N, N, N, M_X, 0, N, N, N, Y, Y, CSR_C,  uopCSRRCI},
+
+    // RV32F
+    '{Y, Y, Y, uopLD,       IQT_MEM, FU_MEM,   RT_FLT, RT_FIX, RT_X,   N, IS_I, Y, N, N, N, N, M_XRD, 0, N, N, N, N, N, CSR_N, uopLD},       // FLW: 32'h0000_3007
+    '{Y, Y, Y, uopSTA,      IQT_MFP, FU_F2IMEM,RT_X,   RT_FIX, RT_FLT, N, IS_S, N, Y, N, N, N, M_XWR, 0, N, N, N, N, N, CSR_N, uopSTA},     // FSW: 32'h0000_3027
+    '{Y, Y, Y, uopFMADD_S,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMADD_S}, // FMADD.S: 32'h0000_3043
+    '{Y, Y, Y, uopFMSUB_S,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMSUB_S}, // FMSUB.S: 32'h0000_3047
+    '{Y, Y, Y, uopFNMSUB_S, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFNMSUB_S},// FNMSUB.S: 32'h0000_304b
+    '{Y, Y, Y, uopFNMADD_S, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFNMADD_S},// FNMADD.S: 32'h0000_304f
+    '{Y, Y, Y, uopFADD_S,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFADD_S},  // FADD.S: 32'h0000_0053
+    '{Y, Y, Y, uopFSUB_S,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSUB_S},  // FSUB.S: 32'h0800_0053
+    '{Y, Y, Y, uopFMUL_S,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMUL_S},  // FMUL.S: 32'h1000_0053
+    '{Y, Y, Y, uopFDIV_S,   IQT_FP,  FU_FDV,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFDIV_S},  // FDIV.S: 32'h1800_0053
+    '{Y, Y, Y, uopFSQRT_S,  IQT_FP,  FU_FDV,   RT_FLT, RT_FLT, RT_X,   N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSQRT_S}, // FSQRT.S: 32'h5800_0053
+    '{Y, Y, Y, uopFSGNJ_S,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_S}, // FSGNJ.S: 32'h2000_0053
+    '{Y, Y, Y, uopFSGNJ_S,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_S}, // FSGNJN.S: 32'h2000_1053
+    '{Y, Y, Y, uopFSGNJ_S,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_S}, // FSGNJX.S: 32'h2000_2053
+    '{Y, Y, Y, uopFMINMAX_S,IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMINMAX_S},// FMIN.S: 32'h2800_0053
+    '{Y, Y, Y, uopFMINMAX_S,IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMINMAX_S},// FMAX.S: 32'h2800_1053
+    '{Y, Y, Y, uopFCVT_X_S, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_S}, // FCVT.W.S: 32'hc000_0053
+    '{Y, Y, Y, uopFCVT_X_S, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_S}, // FCVT.WU.S: 32'hc010_0053
+    '{Y, Y, Y, uopFMV_X_W,  IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMV_X_W}, // FMV.X.W: 32'he000_0053
+    '{Y, Y, Y, uopCMPR_S,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_S},  // FEQ.S: 32'ha000_2053
+    '{Y, Y, Y, uopCMPR_S,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_S},  // FLT.S: 32'ha000_1053
+    '{Y, Y, Y, uopCMPR_S,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_S},  // FLE.S: 32'ha000_0053
+    '{Y, Y, Y, uopFCLASS_S, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCLASS_S},// FCLASS.S: 32'he000_1053
+    '{Y, Y, Y, uopFCVT_S_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_S_X}, // FCVT.S.W: 32'hd000_0053
+    '{Y, Y, Y, uopFCVT_S_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_S_X}, // FCVT.S.WU: 32'hd010_0053
+    '{Y, Y, Y, uopFMV_W_X,  IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMV_W_X}, // FMV.W.X: 32'hf000_0053
+
+    // RV64F
+    '{Y, Y, Y, uopFCVT_X_S, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_S}, // FCVT.L.S: 32'hc020_0053
+    '{Y, Y, Y, uopFCVT_X_S, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_S}, // FCVT.LU.S: 32'hc030_0053
+    '{Y, Y, Y, uopFCVT_S_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_S_X}, // FCVT.S.L: 32'hd020_0053
+    '{Y, Y, Y, uopFCVT_S_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_S_X}, // FCVT.S.LU: 32'hd030_0053
+
+    // RV32D
+    '{Y, Y, N, uopLD,       IQT_MEM, FU_MEM,   RT_FLT, RT_FIX, RT_X,   N, IS_I, Y, N, N, N, N, M_XRD, 0, N, N, N, N, N, CSR_N, uopLD},       // FLD: 32'h0000_3007
+    '{Y, Y, N, uopSTA,      IQT_MFP, FU_F2IMEM,RT_X,   RT_FIX, RT_FLT, N, IS_S, N, Y, N, N, N, M_XWR, 0, N, N, N, N, N, CSR_N, uopSTA},     // FSD: 32'h0000_3027
+    '{Y, Y, N, uopFMADD_D,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMADD_D}, // FMADD.D: 32'h0200_3043
+    '{Y, Y, N, uopFMSUB_D,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMSUB_D}, // FMSUB.D: 32'h0200_3047
+    '{Y, Y, N, uopFNMSUB_D, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFNMSUB_D},// FNMSUB.D: 32'h0200_304b
+    '{Y, Y, N, uopFNMADD_D, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, Y, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFNMADD_D},// FNMADD.D: 32'h0200_304f
+    '{Y, Y, N, uopFADD_D,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFADD_D},  // FADD.D: 32'h0200_0053
+    '{Y, Y, N, uopFSUB_D,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSUB_D},  // FSUB.D: 32'h0a00_0053
+    '{Y, Y, N, uopFMUL_D,   IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMUL_D},  // FMUL.D: 32'h1200_0053
+    '{Y, Y, N, uopFDIV_D,   IQT_FP,  FU_FDV,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFDIV_D},  // FDIV.D: 32'h1a00_0053
+    '{Y, Y, N, uopFSQRT_D,  IQT_FP,  FU_FDV,   RT_FLT, RT_FLT, RT_X,   N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSQRT_D}, // FSQRT.D: 32'h5a00_0053
+    '{Y, Y, N, uopFSGNJ_D,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_D}, // FSGNJ.D: 32'h2100_0053
+    '{Y, Y, N, uopFSGNJ_D,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_D}, // FSGNJN.D: 32'h2100_1053
+    '{Y, Y, N, uopFSGNJ_D,  IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFSGNJ_D}, // FSGNJX.D: 32'h2100_2053
+    '{Y, Y, N, uopFMINMAX_D,IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMINMAX_D},// FMIN.D: 32'h2a00_0053
+    '{Y, Y, N, uopFMINMAX_D,IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMINMAX_D},// FMAX.D: 32'h2a00_1053
+    '{Y, Y, Y, uopFCVT_S_D, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_S_D}, // FCVT.S.D: 32'h4010_0053
+    '{Y, Y, N, uopFCVT_D_S, IQT_FP,  FU_FPU,   RT_FLT, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_D_S}, // FCVT.D.S: 32'h4200_0053
+    '{Y, Y, N, uopCMPR_D,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_D},  // FEQ.D: 32'ha200_2053
+    '{Y, Y, N, uopCMPR_D,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_D},  // FLT.D: 32'ha200_1053
+    '{Y, Y, N, uopCMPR_D,   IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_FLT, N, IS_X, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopCMPR_D},  // FLE.D: 32'ha200_0053
+    '{Y, Y, N, uopFCLASS_D, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCLASS_D},// FCLASS.D: 32'he200_1053
+    '{Y, Y, N, uopFCVT_X_D, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_D}, // FCVT.W.D: 32'hc200_1053
+    '{Y, Y, N, uopFCVT_X_D, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_D}, // FCVT.WU.D: 32'hc210_0053
+    '{Y, Y, N, uopFCVT_D_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_D_X}, // FCVT.D.W: 32'hd200_0053
+    '{Y, Y, N, uopFCVT_D_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_D_X}, // FCVT.D.WU: 32'hd210_0053
+
+    // RV64D
+    '{Y, Y, N, uopFCVT_X_D, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_D}, // FCVT.L.D: 32'hc220_0053
+    '{Y, Y, N, uopFCVT_X_D, IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_X_D}, // FCVT.LU.D: 32'hc230_0053
+    '{Y, Y, N, uopFMV_X_D,  IQT_FP,  FU_F2I,   RT_FIX, RT_FLT, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMV_X_D}, // FMV.X.D: 32'he000_0053
+    '{Y, Y, N, uopFCVT_D_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_D_X}, // FCVT.D.L: 32'hd220_0053
+    '{Y, Y, N, uopFCVT_D_X, IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFCVT_D_X}, // FCVT.D.LU: 32'hd230_0053
+    '{Y, Y, N, uopFMV_D_X,  IQT_INT, FU_I2F,   RT_FLT, RT_FIX, RT_X,   N, IS_I, N, N, N, N, N, M_X,   0, N, N, N, N, N, CSR_N, uopFMV_D_X}  // FMV.D.X: 32'hf200_0053
+    };
 
 endpackage

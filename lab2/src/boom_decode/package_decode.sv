@@ -18,6 +18,11 @@ package package_decode;
             localparam RV64M       = 3;
             localparam RV32A       = 4;
             localparam RV64A       = 5;
+            localparam RVCSR       = 6;
+            localparam RV32F       = 7;
+            localparam RV64F       = 8;
+            localparam RV32D       = 9;
+            localparam RV64D       = 10;
         // RV32 Types
             localparam RV32I_RType = 0;
             localparam RV32I_IType = 1;
@@ -33,6 +38,14 @@ package package_decode;
             localparam RV64I_SType = 1;
             localparam RV64I_RType_I = 2;
             localparam RV64I_RType_W = 3;
+        // RV32F Types 
+            localparam RV32F_LSType = 0;
+            localparam RV32F_R4Type = 1;
+            localparam RV32F_RType = 2;
+        // RV32D Types 
+            localparam RV32D_LSType = 0;
+            localparam RV32D_R4Type = 1;
+            localparam RV32D_RType = 2;
 
 
 localparam logic [31:0] OPCODES [] = '{
@@ -148,12 +161,121 @@ localparam logic [31:0] OPCODES [] = '{
     32'h8000_302f, // AMOMIN.D
     32'ha000_302f, // AMOMAX.D
     32'hc000_302f, // AMOMINU.D
-    32'he000_302f // AMOMAXU.D
+    32'he000_302f, // AMOMAXU.D
+
+    //RVCRS 
+    32'h0000_1073, 
+    32'h0000_2073, 
+    32'h0000_3073, 
+    32'h0000_5073, 
+    32'h0000_6073, 
+    32'h0000_7073, 
+
+    // RV32F
+    32'h0000_2007, // FLW
+    32'h0000_2027, // FSW
+    
+    // FMADD.S
+    32'h0000_0043, // FMADD.S
+    32'h0000_0047, // FMSUB.S
+    32'h0000_004b, // FNMSUB.S
+    32'h0000_004f, // FNMADD.S
+    
+    // FADD.S / FSUB.S / FMUL.S / FDIV.S / FSQRT.S
+    32'h0000_0053, // FADD.S
+    32'h0800_0053, // FSUB.S
+    32'h1000_0053, // FMUL.S
+    32'h1800_0053, // FDIV.S
+    32'h5800_0053, // FSQRT.S
+    
+    // FSGNJ.S / FSGNJN.S / FSGNJX.S
+    32'h2000_0053, // FSGNJ.S
+    32'h2000_1053, // FSGNJN.S
+    32'h2000_2053, // FSGNJX.S
+    32'h2800_0053, // FMIN.S
+    32'h2800_1053, // FMAX.S
+    
+    // FCVT.W.S / FCVT.WU.S
+    32'hc000_0053, // FCVT.W.S
+    32'hc010_0053, // FCVT.WU.S
+    
+    // FMV.X.W / FEQ.S / FLT.S / FLE.S / FCLASS.S
+    32'he000_0053, // FMV.X.W
+    32'ha000_2053, // FEQ.S
+    32'ha000_1053, // FLT.S
+    32'ha000_0053, // FLE.S
+    32'he000_1053, // FCLASS.S
+    
+    // FCVT.S.W / FCVT.S.WU
+    32'hd000_0053, // FCVT.S.W
+    32'hd010_0053, // FCVT.S.WU
+    
+    // FMV.W.X
+    32'hf000_0053, // FMV.W.X
+
+    // RV64F
+    32'hc020_0053, // FCVT.L.S
+    32'hc030_0053, // FCVT.LU.S
+    32'hd020_0053, // FCVT.S.L
+    32'hd030_0053, // FCVT.S.LU
+
+    
+        // RV32D
+    32'h0000_3007, // FLD
+    32'h0000_3027, // FSD
+
+    // FMADD.D / FMSUB.D / FNMSUB.D / FNMADD.D
+    32'h0200_0043, // FMADD.D 0000 0010
+    32'h0200_0047, // FMSUB.D
+    32'h0200_004b, // FNMSUB.D
+    32'h0200_004f, // FNMADD.D
+
+    // FADD.D / FSUB.D / FMUL.D / FDIV.D / FSQRT.D
+    32'h0200_0053, // FADD.D
+    32'h0a00_0053, // FSUB.D
+    32'h1200_0053, // FMUL.D
+    32'h1a00_0053, // FDIV.D
+    32'h5a00_0053, // FSQRT.D
+
+    // FSGNJ.D / FSGNJN.D / FSGNJX.D / FMIN.D / FMAX.D
+    32'h2200_0053, // FSGNJ.D
+    32'h2200_1053, // FSGNJN.D
+    32'h2200_2053, // FSGNJX.D
+    32'h2a00_0053, // FMIN.D
+    32'h2a00_1053, // FMAX.D
+
+    // FCVT.S.D / FCVT.D.S
+    32'h4010_0053, // FCVT.S.D
+    32'h4200_0053, // FCVT.D.S
+
+    // FEQ.D / FLT.D / FLE.D / FCLASS.D
+    32'ha200_2053, // FEQ.D
+    32'ha200_1053, // FLT.D
+    32'ha200_0053, // FLE.D
+    32'he200_1053, // FCLASS.D
+
+    // FCVT.W.D / FCVT.WU.D / FCVT.D.W / FCVT.D.WU
+    32'hc200_0053, // FCVT.W.D
+    32'hc210_0053, // FCVT.WU.D
+    32'hd200_0053, // FCVT.D.W
+    32'hd210_0053, // FCVT.D.WU
+
+    // RV64D
+    32'hc220_0053, // FCVT.L.D
+    32'hc230_0053, // FCVT.LU.D
+    32'he200_0053, // FMV.X.D
+    32'hd220_0053, // FCVT.D.L
+    32'hd230_0053, // FCVT.D.LU
+    32'hf200_0053 // FMV.D.X
+
 
 };
 
 
 localparam logic [31:0] MASKS [] = '{
+    // =========================
+    // RV32I
+    // =========================
     // Nhóm LUI / AUIPC / JAL / JALR
     32'h0000_007f, // LUI
     32'h0000_007f, // AUIPC
@@ -204,6 +326,10 @@ localparam logic [31:0] MASKS [] = '{
     32'hfff0_707f, // ECALL
     32'hfff0_707f, // EBREAK
 
+    // =========================
+    // RV64I
+    // =========================
+
     // RV64I LWU / LD / SD / ADDIW
     32'h0000_707f, // LWU
     32'h0000_707f, // LD
@@ -225,7 +351,9 @@ localparam logic [31:0] MASKS [] = '{
     32'hfe00_707f, // SRLW
     32'hfe00_707f, // SRAW
 
+    // =========================
     // RV32M
+    // =========================
     32'hfe00_707f, // MUL
     32'hfe00_707f, // MULH
     32'hfe00_707f, // MULHSU
@@ -235,14 +363,18 @@ localparam logic [31:0] MASKS [] = '{
     32'hfe00_707f, // REM
     32'hfe00_707f, // REMU
 
+    // =========================
     // RV64M
+    // =========================
     32'hfe00_707f, // MULW
     32'hfe00_707f, // DIVW
     32'hfe00_707f, // DIVUW
     32'hfe00_707f, // REMW
     32'hfe00_707f,  // REMUW
 
-    //RV32A 
+    // =========================
+    // RV32A
+    // =========================
     32'hf800_707f, //LR.W
     32'hf800_707f, // SC.W.
     32'hf800_707f, // AMOSWAP.W
@@ -255,7 +387,9 @@ localparam logic [31:0] MASKS [] = '{
     32'hf800_707f, // AMOMINU.W
     32'hf800_707f, // AMOMAXU.W
 
-    //RV64A 
+    // =========================
+    // RV64A
+    // =========================
     32'hf800_707f, //LR.D
     32'hf800_707f, // SC.D
     32'hf800_707f, // AMOSWAP.D
@@ -266,7 +400,120 @@ localparam logic [31:0] MASKS [] = '{
     32'hf800_707f, // AMOMIN.D
     32'hf800_707f, // AMOMAX.D
     32'hf800_707f, // AMOMINU.D
-    32'hf800_707f // AMOMAXU.D
+    32'hf800_707f, // AMOMAXU.D
+
+    // =========================
+    // RVCRS
+    // =========================
+    32'h0000_707f, 
+    32'h0000_707f, 
+    32'h0000_707f, 
+    32'h0000_707f, 
+    32'h0000_707f, 
+    32'h0000_707f, 
+
+    // =========================
+    // RV32F
+    // =========================
+    
+    // FLW - FSW
+    32'h0000_707f, // FLW
+    32'h0000_707f, // FSW
+
+    // FMADD.S - FNMADD.S
+    32'h0600_007f, // FMADD.S 0000 0110 0000
+    32'h0600_007f, // FMSUB.S
+    32'h0600_007f, // FNMSUB.S
+    32'h0600_007f, // FNMADD.S
+
+    // FADD.S - FSQRT.S
+    32'hfe00_007f, // FADD.S
+    32'hfe00_007f, // FSUB.S
+    32'hfe00_007f, // FMUL.S
+    32'hfe00_007f, // FDIV.S
+    32'hfe00_007f, // FSQRT.S
+
+    // FSGNJ.S - FMAX.S
+    32'hfe00_707f, // FSGNJ.S
+    32'hfe00_707f, // FSGNJN.S
+    32'hfe00_707f, // FSGNJX.S
+    32'hfe00_707f, // FMIN.S
+    32'hfe00_707f, // FMAX.S
+
+    // FCVT.W.S - FCVT.WU.S
+    32'hfff0_007f, // FCVT.W.S
+    32'hfff0_007f, // FCVT.WU.S
+
+    // FMV.X.W - FCLASS.S
+    32'hfe00_707f, // FMV.X.W
+    32'hfe00_707f, // FEQ.S
+    32'hfe00_707f, // FLT.S
+    32'hfe00_707f, // FLE.S
+    32'hfe00_707f, // FCLASS.S
+
+    // FCVT.S.W - FMV.W.X
+    32'hfff0_007f, // FCVT.S.W
+    32'hfff0_007f, // FCVT.S.WU
+    32'hfff0_007f, // FMV.W.X
+
+    // RV64F
+    32'hfff0_007f, // FCVT.L.S
+    32'hfff0_007f, // FCVT.LU.S
+    32'hfff0_007f, // FCVT.S.L
+    32'hfff0_007f, // FCVT.S.LU
+
+    // =========================
+    // RV32D
+    // =========================
+    
+    // FLD - FSD
+    32'h0000_707f, // FLD
+    32'h0000_707f, // FSD
+
+    // FMADD.D - FNMADD.D
+    32'h0600_007f, // FMADD.D
+    32'h0600_007f, // FMSUB.D
+    32'h0600_007f, // FNMSUB.D
+    32'h0600_007f, // FNMADD.D
+
+    // FADD.D - FSQRT.D
+    32'hfe00_007f, // FADD.D
+    32'hfe00_007f, // FSUB.D
+    32'hfe00_007f, // FMUL.D
+    32'hfe00_007f, // FDIV.D
+    32'hfe00_007f, // FSQRT.D
+
+    // FSGNJ.D - FMAX.D
+    32'hfe00_707f, // FSGNJ.D
+    32'hfe00_707f, // FSGNJN.D
+    32'hfe00_707f, // FSGNJX.D
+    32'hfe00_707f, // FMIN.D
+    32'hfe00_707f, // FMAX.D
+
+    // FCVT.S.D - FCVT.D.S
+    32'hfff0_007f, // FCVT.S.D
+    32'hfff0_007f, // FCVT.D.S
+
+    // FEQ.D - FCLASS.D
+    32'hfe00_707f, // FEQ.D
+    32'hfe00_707f, // FLT.D
+    32'hfe00_707f, // FLE.D
+    32'hfe00_707f, // FCLASS.D
+
+    // FCVT.W.D - FCVT.D.WU
+    32'hfff0_007f, // FCVT.W.D
+    32'hfff0_007f, // FCVT.WU.D
+    32'hfff0_007f, // FCVT.D.W
+    32'hfff0_007f, // FCVT.D.WU
+
+    // RV64D
+    32'hfff0_007f, // FCVT.L.D
+    32'hfff0_007f, // FCVT.LU.D
+    32'hfff0_007f, // FMV.X.D
+    32'hfff0_007f, // FCVT.D.L
+    32'hfff0_007f, // FCVT.D.LU
+    32'hfff0_007f // FMV.D.X
+
 };
 
 endpackage

@@ -29,11 +29,11 @@ class scoreboard extends uvm_scoreboard;
         //`uvm_info(get_type_name, $sformatf(" function7 = %b, opcode = %b",sb_item.instr[31:25],sb_item.instr[6:0]), UVM_HIGH);
         
         foreach ( OPCODES[i] ) begin 
- //       `uvm_info(get_type_name, $sformatf(" after masked instr = %h, OPCODE = %h",sb_item.instr & MASKS[i], OPCODES[i]), UVM_LOW);
+       //`uvm_info(get_type_name, $sformatf(" after masked instr = %h, OPCODE = %h",sb_item.instr & MASKS[i], OPCODES[i]), UVM_HIGH);
             if((sb_item.instr & MASKS[i]) == OPCODES[i]) begin 
                 // `uvm_info(get_type_name, $sformatf("da------------------------------------ vao if"), UVM_LOW);
                 flag_err = 1; 
-                //`uvm_info(get_type_name, $sformatf(" after masked instr = %h, OPCODE = %h",sb_item.instr & MASKS[i], OPCODES[i]), UVM_HIGH);
+                `uvm_info(get_type_name, $sformatf(" after masked instr = %h, OPCODE = %h",sb_item.instr & MASKS[i], OPCODES[i]), UVM_HIGH);
 
                 if (
                 (sb_item.uopc            == DECODE_STRUCT[i].uopc) &&

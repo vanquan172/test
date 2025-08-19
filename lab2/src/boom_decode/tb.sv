@@ -70,7 +70,7 @@ module tb;
     clk <= 0;
     uvm_config_db#(virtual decode_if.MON)::set(uvm_root::get(), "*", "decode_if_MON", vif);
     uvm_config_db#(virtual decode_if.DRV)::set(uvm_root::get(), "*", "decode_if_DRV", vif);
-    run_test("test_RV32I");
+    run_test("test_RV64D");
   end
 
   // initial begin
